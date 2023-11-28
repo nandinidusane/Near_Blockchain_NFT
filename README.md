@@ -20,7 +20,7 @@ NFT Minting Link: https://explorer.testnet.near.org/transactions/5wxBq197E6Vti5m
 
 NFT Hosting Link on IPFS: https://ipfs.io/ipfs/Qma7UAUHTktfpK6gWqUURfpZqTgmuT2q6tU2S31VPjgRc4
 
-Project Hosting Link on Fleek: 
+Project Hosting Link on Fleek: https://nearnftmarketplace.on.fleek.co/
 
 # Output Screenshots
 ![My Image](images/1.png)
