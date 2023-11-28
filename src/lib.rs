@@ -18,7 +18,7 @@ pub struct Nft
     pub token_id: u64,
     pub owner_id: AccountId,
     pub metadata: String, 
-    pub price: Balance,
+    pub price: u128,
     pub is_listed: bool,
 }
 
@@ -37,7 +37,7 @@ impl NftMarketplace
     }
 
     #[payable]
-    pub fn mint_nft(&mut self, metadata: String, price: u128, _name: Option<String>)
+    pub fn mint_nft(&mut self, metadata: String, price: u128, recipient_id: AccountId,_name: Option<String>)
     {
         assert!(price > 0, "Price must be positive");
         let token_id = self.next_token_id;
@@ -46,7 +46,7 @@ impl NftMarketplace
         let nft = Nft
         {
             token_id,
-            owner_id: env::predecessor_account_id(),
+            owner_id: recipient_id,
             metadata, 
             price,
             is_listed: true,
@@ -55,8 +55,15 @@ impl NftMarketplace
     self.nfts.push(nft);
     }
 
-    pub fn get_supply(&self) -> u64
+    //pub fn get_supply(&self) -> u64
+    //{
+    //    self.next_token_id - 1
+    //}
+
+    pub fn nfts_owned_by(&self, account_id: AccountId) -> u64
     {
-        self.next_token_id - 1
-    }
+        let owned_nfts = self.nfts.iter().filter(|nft| nft.owner_id == account_id);
+        let owned_nfts: Vec<&Nft> = owned_nfts.collect();
+        owned_nfts.len() as u64
+      }
 }

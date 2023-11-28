@@ -1,0 +1,105 @@
+<!--NFT MINTING-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFT MARKETPLACE</title>
+  
+  <style>
+    :root {
+      --primary-color: #000000;
+      --secondary-color: #ffffff; 
+    }
+    
+    body {
+      margin: 0;
+      font-family: "Times New Roman", Times, serif;
+      background-color: #011f4d;
+    }
+    
+    .header {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 1rem;
+      display: flex; 
+      align-items: center;
+      justify-content: space-between;  
+      font-weight: bold;
+    }
+    
+    .header button {
+      padding: 1rem;
+      border: none; 
+      border-radius: 5px;
+      background-color: var(--secondary-color); 
+      font-family: "Times New Roman", Times, serif;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .mint-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      margin-top: 100px;
+      font-family: "Times New Roman", Times, serif;
+    }
+    
+    .account {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--secondary-color); 
+        color: var(--primary-color); 
+        border-radius: 5px;
+        font-family: "Times New Roman", Times, serif;
+    }      
+
+    .account-id {
+        margin-left: 1rem;  
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <button id="login">Login with NEAR</button>
+    <div class="account">
+      <p>Connected</p>  
+      <span id="accountId" class="account-id"></span>
+    </div>
+    
+  </header>
+
+  <header class="body">
+    <div class="form-group">
+        <div class="mint-form">
+          <h2>Mint NFT</h2>
+          <label for="recipient-address">NFT Address:</label>
+          <input type="text" id="recipient-address" placeholder="IPFS LINK">
+          <br>
+          <button id="mint">Create NFT</button>
+          <p>
+          <button id="getcountofNFT">Total NFT Minted Count</button>
+          <div id="nftsOwned"></div>
+        </div>
+      </div>
+  </header>
+
+  <script src="https://cdn.jsdelivr.net/npm/near-api-js@0.44.2/dist/near-api-js.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
